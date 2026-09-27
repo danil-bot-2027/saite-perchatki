@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тёплые руки — зимние перчатки премиум-качества</title>
+<style>
+  :root{
+    --navy-950:#060f22;
+    --navy-900:#0b1c38;
+    --navy-800:#12284a;
+    --navy-700:#1b3660;
+    --ice:#d7e6fb;
+    --white:#ffffff;
+    --gold:#c7a468;
+    --muted:#93a6c9;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy-950);
+    color:var(--ice);
+    font-family:"Georgia","Times New Roman",serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sans{font-family:"Helvetica Neue",Arial,sans-serif;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(6,15,34,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(215,230,251,0.08);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 0;
+  }
+  .logo{
+    font-size:22px;
+    letter-spacing:0.5px;
+    color:var(--white);
+    font-weight:400;
+  }
+  .logo span{color:var(--gold);}
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:40px;
+  }
+  nav a{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:14px;
+    letter-spacing:0.4px;
+    color:var(--ice);
+    position:relative;
+    padding-bottom:4px;
+    transition:color .25s ease;
+  }
+  nav a:hover, nav a:focus-visible{color:var(--gold);}
+  .burger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+  }
+  .burger span{
+    width:24px;height:1px;background:var(--ice);
+  }
+  @media (max-width:720px){
+    nav{
+      position:absolute;
+      top:100%;
+      left:0;right:0;
+      background:var(--navy-900);
+      border-bottom:1px solid rgba(215,230,251,0.1);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    nav.open{max-height:220px;}
+    nav ul{
+      flex-direction:column;
+      gap:0;
+      padding:8px 0;
+    }
+    nav ul li a{
+      display:block;
+      padding:14px 20px;
+    }
+    .burger{display:flex;}
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:120px 0 140px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-200px;right:-150px;
+    width:520px;height:520px;
+    border-radius:50%;
+    background:radial-gradient(circle at center, rgba(199,164,104,0.14), transparent 70%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:"❄";
+    position:absolute;
+    font-size:340px;
+    color:rgba(215,230,251,0.03);
+    right:-60px;
+    bottom:-140px;
+    line-height:1;
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:2px;
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:56px;
+    font-weight:400;
+    color:var(--white);
+    line-height:1.15;
+    max-width:820px;
+    margin:0 auto 26px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold);
+  }
+  .hero p{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:18px;
+    color:var(--muted);
+    max-width:520px;
+    margin:0 auto 48px;
+  }
+  @media (max-width:640px){
+    .hero{padding:80px 0 90px;}
+    .hero h1{font-size:36px;}
+    .hero p{font-size:16px;}
+  }
+
+  .btn{
+    display:inline-block;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:15px;
+    letter-spacing:0.5px;
+    padding:18px 44px;
+    border:1px solid var(--gold);
+    color:var(--white);
+    background:transparent;
+    cursor:pointer;
+    transition:background .3s ease, color .3s ease, transform .2s ease;
+  }
+  .btn:hover, .btn:focus-visible{
+    background:var(--gold);
+    color:var(--navy-950);
+  }
+  .btn:active{transform:scale(0.98);}
+  .btn-solid{
+    background:var(--gold);
+    color:var(--navy-950);
+  }
+  .btn-solid:hover{
+    background:transparent;
+    color:var(--white);
+  }
+
+  /* ===== Section shared ===== */
+  section{padding:110px 0;}
+  @media (max-width:640px){section{padding:70px 0;}}
+  .section-head{
+    text-align:center;
+    margin-bottom:70px;
+  }
+  .section-head .eyebrow{margin-bottom:16px;}
+  .section-head h2{
+    font-size:38px;
+    font-weight:400;
+    color:var(--white);
+  }
+  @media (max-width:640px){
+    .section-head h2{font-size:28px;}
+  }
+
+  .divider{
+    width:48px;height:1px;
+    background:var(--gold);
+    margin:24px auto 0;
+  }
+
+  /* ===== Catalog ===== */
+  .catalog-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:rgba(215,230,251,0.08);
+  }
+  @media (max-width:900px){
+    .catalog-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .catalog-grid{grid-template-columns:1fr;}
+  }
+  .card{
+    background:var(--navy-950);
+    padding:0 0 36px;
+    display:flex;
+    flex-direction:column;
+  }
+  .card-media{
+    height:200px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .card-media span{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:12px;
+    letter-spacing:1.5px;
+    color:rgba(255,255,255,0.55);
+    z-index:2;
+  }
+  .card-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(160deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.25) 100%);
+  }
+  .m1{background:linear-gradient(135deg,#3a2a1a,#5c4127);}
+  .m2{background:linear-gradient(135deg,#1b3660,#2a5090);}
+  .m3{background:linear-gradient(135deg,#3d2a44,#6a4a72);}
+  .m4{background:linear-gradient(135deg,#123b3a,#1e6461);}
+
+  .card-body{
+    padding:28px 28px 0;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+  .card-body h3{
+    font-size:20px;
+    color:var(--white);
+    font-weight:400;
+    margin-bottom:10px;
+  }
+  .card-body p{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:14px;
+    color:var(--muted);
+    margin-bottom:22px;
+    flex:1;
+  }
+  .price-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
+  }
+  .price{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:22px;
+    color:var(--gold);
+  }
+  .card-btn{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:13px;
+    letter-spacing:0.5px;
+    padding:13px 0;
+    text-align:center;
+    border:1px solid rgba(215,230,251,0.3);
+    color:var(--ice);
+    background:transparent;
+    cursor:pointer;
+    transition:all .25s ease;
+  }
+  .card-btn:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+  }
+
+  /* ===== Why us ===== */
+  .why{background:var(--navy-900);}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:48px;
+  }
+  @media (max-width:760px){
+    .why-grid{grid-template-columns:1fr;gap:40px;}
+  }
+  .why-item{text-align:center;}
+  .why-icon{
+    width:56px;height:56px;
+    margin:0 auto 24px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold);
+    font-size:22px;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+  }
+  .why-item h3{
+    color:var(--white);
+    font-size:19px;
+    font-weight:400;
+    margin-bottom:12px;
+  }
+  .why-item p{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:14px;
+    color:var(--muted);
+    max-width:260px;
+    margin:0 auto;
+  }
+
+  /* ===== Reviews ===== */
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+  }
+  @media (max-width:820px){
+    .reviews-grid{grid-template-columns:1fr;}
+  }
+  .review{
+    border:1px solid rgba(215,230,251,0.1);
+    padding:36px 32px;
+  }
+  .stars{
+    color:var(--gold);
+    letter-spacing:3px;
+    margin-bottom:18px;
+    font-size:15px;
+  }
+  .review p{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:14.5px;
+    color:var(--ice);
+    margin-bottom:24px;
+  }
+  .review-name{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:0.5px;
+  }
+  .review-name b{color:var(--white);font-weight:500;}
+
+  /* ===== CTA final ===== */
+  .cta-final{
+    text-align:center;
+    background:var(--navy-900);
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-final h2{
+    font-size:40px;
+    font-weight:400;
+    color:var(--white);
+    margin-bottom:18px;
+  }
+  .cta-final p{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    color:var(--muted);
+    margin-bottom:44px;
+  }
+  @media (max-width:640px){
+    .cta-final h2{font-size:28px;}
+  }
+  .tg-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    padding:40px 0;
+    text-align:center;
+    border-top:1px solid rgba(215,230,251,0.08);
+  }
+  footer p{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:0.5px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <div class="logo">Тёплые <span>руки</span></div>
+    <button class="burger" id="burgerBtn" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
+      <ul>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#delivery">Доставка</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">КОЛЛЕКЦИЯ ЗИМА 2026</div>
+    <h1>Зимние перчатки <em>премиум</em>-качества</h1>
+    <p>Тепло, стиль и комфорт в любую погоду</p>
+    <a href="#catalog" class="btn btn-solid">Смотреть каталог</a>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">АССОРТИМЕНТ</div>
+      <h2>Каталог перчаток</h2>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="catalog-grid">
+
+    <div class="card">
+      <div class="card-media m1"><span>КОЖА</span></div>
+      <div class="card-body">
+        <h3>Кожаные классические</h3>
+        <p>Натуральная кожа, шерстяная подкладка. Строгий стиль для города.</p>
+        <div class="price-row"><span class="price">2 500 ₽</span></div>
+        <button class="card-btn">Заказать</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media m2"><span>С ПОДОГРЕВОМ</span></div>
+      <div class="card-body">
+        <h3>Спортивные с подогревом</h3>
+        <p>Встроенные элементы подогрева, до 6 часов работы от батареи.</p>
+        <div class="price-row"><span class="price">3 200 ₽</span></div>
+        <button class="card-btn">Заказать</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media m3"><span>С МЕХОМ</span></div>
+      <div class="card-body">
+        <h3>Женские с мехом</h3>
+        <p>Мягкая меховая отделка, приталенный крой, деликатный дизайн.</p>
+        <div class="price-row"><span class="price">2 800 ₽</span></div>
+        <button class="card-btn">Заказать</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media m4"><span>ДЕТСКИЕ</span></div>
+      <div class="card-body">
+        <h3>Детские непромокаемые</h3>
+        <p>Влагозащитная мембрана, яркие расцветки, надёжная фиксация.</p>
+        <div class="price-row"><span class="price">1 500 ₽</span></div>
+        <button class="card-btn">Заказать</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="why" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ПОЧЕМУ МЫ</div>
+      <h2>Забота на каждом этапе</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="why-grid" id="delivery">
+      <div class="why-item">
+        <div class="why-icon">2-3</div>
+        <h3>Доставка по России</h3>
+        <p>Привозим заказ в любой регион страны за 2–3 дня.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">1Г</div>
+        <h3>Гарантия 1 год</h3>
+        <p>Меняем и ремонтируем изделие при производственном браке.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">₽</div>
+        <h3>Оплата при получении</h3>
+        <p>Платите только после того, как убедитесь в качестве.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ОТЗЫВЫ</div>
+      <h2>Что говорят клиенты</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Заказывала мужу кожаные перчатки — выглядят дорого, сидят идеально. Доставили за два дня».</p>
+        <div class="review-name"><b>Анна К.</b>, Москва</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Спортивные с подогревом спасли на зимней рыбалке. Держат тепло весь день, батарея не подводит».</p>
+        <div class="review-name"><b>Дмитрий С.</b>, Казань</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★☆</div>
+        <p>«Детские непромокаемые — то, что нужно для прогулок. Ребёнок доволен, руки всегда сухие».</p>
+        <div class="review-name"><b>Ольга П.</b>, Новосибирск</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <h2>Закажите сейчас</h2>
+    <p>Оформите заказ за одну минуту и получите тепло уже через несколько дней</p>
+    <a href="https://t.me/" target="_blank" rel="noopener" class="btn btn-solid tg-btn">Написать в Telegram</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Тёплые руки</p>
+</footer>
+
+<script>
+  var burger = document.getElementById('burgerBtn');
+  var nav = document.getElementById('mainNav');
+  burger.addEventListener('click', function(){
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      nav.classList.remove('open');
+    });
+  });
+
+  document.querySelectorAll('.card-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.closest('.card').querySelector('h3').textContent;
+      alert('Заказ оформлен: ' + name + '. Мы свяжемся с вами для подтверждения.');
+    });
+  });
+</script>
+
+</body>
+</html>
